@@ -1,13 +1,16 @@
 def rounded_currency value
-  rounded = round_with_string(value.to_f.abs)
+  wrapped_in_parens(value, round_to_string(value.to_f.abs))
+end
+
+def wrapped_in_parens value, rounded_string
   if value < 0
-    "($#{rounded})"
+    "($#{rounded_string})"
   else
-    "$#{rounded}"
+    "$#{rounded_string}"
   end
 end
 
-def round_with_string value
+def round_to_string value
   if value > 1_000_000_000
     "%0.1fB" % [value / 1_000_000_000]
   elsif value > 1_000_000
