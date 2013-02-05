@@ -1,4 +1,8 @@
 class StandardDeviation
+  def self.calculate series
+    StandardDeviation.new.calculate(series)
+  end
+
   # Calculate the standard deviation of a series of integers.
   #
   def calculate series
