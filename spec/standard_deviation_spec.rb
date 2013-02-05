@@ -5,7 +5,6 @@ describe "standard deviation" do
 
   describe 'mean' do
     it "calculates the mean of series" do
-      StandardDeviation.new.mean([1, 2, 3]).should == 2
       StandardDeviation.new.mean(series).should == 5
     end
   end
@@ -20,7 +19,13 @@ describe "standard deviation" do
 
   describe "standard deviation" do
     it "takes the #mean from the #difference_to_mean's and takes the square root" do
-      StandardDeviation.new.calculate([2,4,4,4,5,5,7,9]).should == 2
+      StandardDeviation.new.calculate(series).should == 2
+    end
+  end
+
+  describe '.standard_deviation' do
+    it "calculates the standard deviation" do
+      StandardDeviation.calculate(series).should == 2
     end
   end
 end
