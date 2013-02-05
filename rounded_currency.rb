@@ -8,7 +8,10 @@ describe "rounded_currency" do
     rounded_currency(0).should == "$0"
   end
 
-  it 'converts 140 => "$140"'
+  it 'converts 140 => "$140"' do
+    rounded_currency(140).should == "$140"
+  end
+
   it 'converts 1240 => "$1.2K"'
   it 'converts 78192 => "$78K"'
   it 'converts 501200 => "$501K"'
