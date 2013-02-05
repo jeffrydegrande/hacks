@@ -1,5 +1,13 @@
+
+def rounded_currency value
+  "$#{value}"
+end
+
 describe "rounded_currency" do
-  it 'converts 0 to "$0"'
+  it 'converts 0 to "$0"' do
+    rounded_currency(0).should == "$0"
+  end
+
   it 'converts 140 => "$140"'
   it 'converts 1240 => "$1.2K"'
   it 'converts 78192 => "$78K"'
