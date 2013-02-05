@@ -1,8 +1,9 @@
 
 def rounded_currency value
-
   rounded = value.to_f
-  if rounded > 1000
+  if rounded > 10000
+    "$%0.0fK" % [rounded / 1000]
+  elsif rounded > 1000
     "$%0.1fK" % [rounded / 1000]
   else
     "$%0.0f" % rounded
@@ -22,10 +23,11 @@ describe "rounded_currency" do
     rounded_currency(1240).should == "$1.2K"
   end
 
-  it 'converts 78192 => "$78K"'
-  it 'converts 501200 => "$501K"'
-  it 'converts -1240123 => "($1.2M)"'
-  it 'converts 5853010238 => "$5.9B"'
-end
+  it 'converts 78192 => "$78K"' do
+    rounded_currency(78192).should == "$78K"
+  end
 
-# All you have to do is handle integers up to the 100's of T's.
+  it 'converts 501200 => "$501K"' do
+  # it 'converts -1240123 => "($1.2M)"'
+  # it 'converts 5853010238 => "$5.9B"'
+end
